@@ -1,0 +1,428 @@
+// USER VARIABLES SECTION
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&display=swap')
+$accent: orange // Accent Color
+$patient: #2EB7FF
+$business: #FF8720
+$provider: #2B1FC7
+$fontsize: 16px // Body Font Size
+$textcolor: #130E54 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: Work Sans, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+$container-max-widths: (sm: 540px, md: 720px, lg: 1240px, xl: 1620px)
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1500px)
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: local($fname), url($furl) format('woff2')
+		// font-display: swap // Uncomment to initially display system fonts
+
+
+@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+
+::selection
+	background-color: $accent
+	color: #fff
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+html
+	width: 100%
+	overflow-y: scroll
+	overflow-y: overlay
+::-webkit-scrollbar
+	width: 10px
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	max-width: 100vw
+	width: 100%
+	position: relative
+	overflow-x: hidden
+
+	&.fixed
+		overflow: hidden
+		position: fixed
+		width: 100%
+		height: 100%
+.cta
+	border: 1px solid #FFFFFF
+	background-color: $textcolor
+	color: #FFFFFF
+	border-radius: 8px
+	display: flex
+	height: fit-content
+	line-height: 19px
+	justify-content: center
+	align-items: center
+	padding: 6px 16px
+	transition: 0.2s ease-in
+	text-decoration: unset
+	text-transform: capitalize
+	&:hover, &.white
+		border: 1px solid $textcolor
+		background-color: #FFFFFF
+		color: $textcolor!important
+		text-decoration: unset
+.lang
+	height: 55px
+	position: relative
+	.top-mob &
+		height: 30px!important
+		a
+			color: white
+	ul
+		position: absolute
+		top: 0
+		padding-inline-start: 0
+		list-style: none
+		display: flex
+		flex-direction: column
+		font-size: 16px
+		line-height: 19px
+		font-weight: 500
+		text-transform: uppercase
+		margin-bottom: 0
+		position: relative
+		padding: 18px 27px 18px 16px
+		background: #FFFFFF
+		transition: 0.4s
+		border-radius: 24px
+		.top-mob &
+			background-color: unset
+			padding: 6.5px 20px 9.5px 9px
+			border-radius: 8px
+			font-size: 14px
+			&.active
+				background: #FFFFFF
+
+				a
+					color: $textcolor
+		&:after
+			content: ""
+			display: inline-block
+			position: absolute
+			width: 6px
+			height: 6px
+			right: 14px
+			top: 22px
+			border-bottom: 2px solid $textcolor
+			border-right: 2px solid $textcolor
+			transform: rotate(45deg)
+			transition: 0.4s
+			cursor: pointer
+			.top-mob &
+				right: 13px
+				top: 10px
+				border-bottom: 2px solid #FFFFFF
+				border-right: 2px solid #FFFFFF
+		&.active
+			box-shadow: 0px 0px 20px 3px rgba(103, 103, 103, 0.1)
+			&:after
+				transform: rotate(-140deg) translate(-3px,-3px)
+				.top-mob &
+					transform: rotate(-140deg)
+					border-bottom: 2px solid $textcolor
+					border-right: 2px solid $textcolor
+					top: 13px
+					right: 13px
+			li
+				&:not(.wpml-ls-current-language)
+					display: block
+					left: 0px
+					top: 17px
+					padding-top: 17px
+					a
+						color: rgba(19, 14, 84, 0.6)
+		li
+			&.wpml-ls-current-language
+				order: 1
+			&:not(.wpml-ls-current-language)
+				display: none
+				order: 2
+			a
+				display: flex
+				align-items: center
+				color: $textcolor
+				&:hover
+					text-decoration: unset
+				span
+					margin-right: 6px
+.zlow
+	z-index: 1!important
+.search-block
+	.showbar
+		width: 28px
+		height: 28px
+		appearance: none
+		border: unset
+		background: no-repeat center / cover url("../images/dest/search.svg")
+	form
+		display: none
+h1
+	font-weight: 500
+	font-size: 82px
+	line-height: 100%
+	/* or 82px */
+	text-transform: capitalize
+%gray-text
+	font-weight: 300
+	line-height: 180%
+	color: #716E98
+	+media-breakpoint-down(md)
+		font-size: 14px
+		line-height: 150%
+.btn
+	padding: 12px 32px
+	width: fit-content
+	display: flex
+	justify-content: center
+	align-items: center
+	font-size: 14px
+	line-height: 16px
+	font-weight: 500
+	text-transform: capitalize
+	background-color: $textcolor
+	color: #FFFFFF
+	min-width: 174px
+	border-radius: 8px
+	text-decoration: unset
+	border: 1px solid transparent
+	transition: 0.2s ease-in
+	white-space: nowrap
+	body.provider &:not(.white):not(.now):not(.cta):not(.plain)
+		background-color: $provider
+		&:hover
+			background-color: transparent
+			color: $provider
+			border: 1px solid $provider
+	&.revert
+		color: $textcolor
+	&:hover, &.revert
+		background-color: transparent
+		border: 1px solid $textcolor
+		text-decoration: unset
+		color: $textcolor
+	&.w-100
+		+media-breakpoint-down(sm)
+			width: 100%
+			margin: 0 auto
+			max-width: 350px
+			margin-top: 30px
+	&.white, &.now:hover
+		color: #FFFFFF
+		border: 1px solid white
+		background-color: transparent
+	&.white:hover, &.now
+		background-color: white
+		color: $textcolor
+		//body.patient &
+		//	color: $patient
+		//body.provider &
+		//	color: $textcolor
+		//body.business &
+		//	color: $business
+	&.long
+		min-width: 229px
+	&.arr
+		display: flex
+		align-items: center
+		background-color: transparent
+		body.patient &
+			color: $patient
+			border: 1px solid $patient
+			&:hover
+				background-color: $patient
+				color: #FFFFFF
+		body.business &
+			color: $textcolor
+			border: 1px solid $textcolor
+			&:hover
+				background-color: $textcolor
+				color: #FFFFFF
+		&:after
+			content: ""
+			width: 11px
+			height: 11px
+			margin-left: 10px
+			display: inline-block
+			position: relative
+			transition: 0.2s ease-in
+		&.patient
+			&:after
+				background: no-repeat center / contain  url('../images/dest/arr2.svg')
+			&:hover
+				&:after
+					background: no-repeat center / contain  url('../images/dest/arr1.svg')
+		&.plain
+			&:after
+				background: no-repeat center / contain  url('../images/dest/arr7.svg')
+			&:hover
+				&:after
+					background: no-repeat center / contain  url('../images/dest/arr1.svg')
+	stripe.orange &:hover
+		color: $business
+	stripe.l-blue &:hover
+		color: $patient
+	stripe.blue &:hover
+		color: $provider
+%bg
+	background: linear-gradient(140.74deg, #B7E6FF 0%, #2EB7FF 98.62%)
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12)2
+%bg2
+	background-color: #FBFBFB
+	position: relative
+	&:after
+		content: ""
+		display: block
+		position: relative
+
+@mixin menu-btn
+	background-color: transparent
+	border: none
+	cursor: pointer
+	display: flex
+	padding: 0
+	width: 40px
+	height: 40px
+	margin-left: 35px
+	svg
+		height: 40px
+	.line
+		fill: none
+		stroke: black
+		stroke-width: 4
+		transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1)
+	.line1
+		stroke-dasharray: 60 207
+		stroke-width: 6
+	.line2
+		stroke-dasharray: 60 60
+		stroke-width: 6
+	.line3
+		stroke-dasharray: 60 207
+		stroke-width: 6
+	&.opened
+		.line1
+			stroke-dasharray: 90 207
+			stroke-dashoffset: -134
+			stroke-width: 6
+		.line2
+			stroke-dasharray: 1 60
+			stroke-dashoffset: -30
+			stroke-width: 6
+		.line3
+			stroke-dasharray: 90 207
+			stroke-dashoffset: -134
+			stroke-width: 6
+p
+	margin-bottom: 0
+@mixin comb
+	content: ""
+	display: block
+	position: absolute
+	width: 477px
+	height: 413px
+	background: no-repeat center / cover url("../images/dest/comb2.svg")
+	z-index: -1
+.parent
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	grid-template-rows: 0.4fr repeat(4, 1fr)
+	grid-column-gap: 14px
+	grid-row-gap: 14px
+	@media (max-width: 450px)
+		height: 360px
+		body.provider &
+			height: 400px
+	@media (max-width: 390px)
+		height: 350px
+		body.provider &
+			height: 350px
+
+	.div1
+		grid-area: 2 / 1 / 3 / 2
+
+	.div2
+		grid-area: 3 / 1 / 6 / 2
+
+	.div3
+		grid-area: 1 / 2 / 5 / 3
+
+	.div4
+		grid-area: 5 / 2 / 6 / 3
+h2.common-title
+	font-weight: 500
+	font-size: 66px
+	line-height: 100%
+	text-transform: capitalize
+	+media-breakpoint-down(lg)
+		font-size: 45px
+	+media-breakpoint-down(md)
+		font-size: 38px
+	& + .subtitle
+		@extend %gray-text
+		margin: 30px auto 0
+		max-width: 594px
+		+media-breakpoint-down(md)
+			margin: 0
+
+	&.center
+		text-align: center
+		+media-breakpoint-down(md)
+			text-align: left
+		& + .subtitle
+			text-align: center
+			+media-breakpoint-down(md)
+				text-align: left
+.bgba
+	@extend %bg
+@mixin second-title
+	font-weight: 600
+	font-size: 24px
+	line-height: 150%
+	text-transform: uppercase
+	+media-breakpoint-down(lg)
+		font-size: 20px
+%readmore, .readmore
+	color: $patient
+	text-decoration-line: underline
+	font-weight: 600
+	&:hover
+		text-decoration: unset
+	body.provider &
+		color: $provider
+	body.business &
+		color: $business

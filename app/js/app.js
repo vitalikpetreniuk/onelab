@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 spaceBetween: 20
             },
             // when window width is >= 640px
-            1000: {
+            1100: {
                 slidesPerView: 6,
                 spaceBetween: 30,
                 allowTouchMove: true
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             1500: {
                 slidesPerView: 6,
-                spaceBetween: 'auto',
-                allowTouchMove: false,
+                spaceBetween: 30,
+                // allowTouchMove: false,
 
             }
         },
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let swipere;
     function myFunction() {
-        if (window.matchMedia("(max-width: 992px)").matches) {
+        if (window.matchMedia("(max-width: 1100px)").matches) {
 
             $('.mySwiper3 .row').addClass('swiper-wrapper');
             $('.mySwiper3 .row > div ').addClass('swiper-slide');
@@ -99,8 +99,10 @@ document.addEventListener("DOMContentLoaded", function() {
             swipere = new Swiper(".mySwiper3", {
                 spaceBetween: 10,
                 allowTouchMove: true,
-                slidesPerView: 3,
-                loopFillGroupWithBlank: false,
+                slidesPerView: 2,
+                setWrapperSize: true,
+                centeredSlides: true,
+                // loopFillGroupWithBlank: false,
                 slidesPerView: 'auto',
                 observer: true,
                 observeParents: true,

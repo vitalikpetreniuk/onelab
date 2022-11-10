@@ -875,6 +875,23 @@ section
           +media-breakpoint-down(md)
             padding: 37px 0 66px
         .swiper-slide
+          width: 140px
+        .swiper-slide-thumb-active .swiper-inn .thumb-inn:after
+          content: ""
+          width: 27px
+          height: 15px
+          position: absolute
+          background: no-repeat center / contain url('../images/dest/arr3.svg')
+          left: 50%
+          bottom: -82px
+          transform: translateX(-50%)
+          +media-breakpoint-down(md)
+            bottom: -52px
+        .swiper-slide-thumb-active
+          .thumb-inn
+            .bg
+              background: #FF8720!important
+        .swiper-inn
           border-radius: 40px
           //flex-shrink: 100 !important
           width: 176px!important
@@ -884,30 +901,23 @@ section
           cursor: pointer
           box-sizing: border-box
           +media-breakpoint-down(md)
-            width: 125px!important
-            height: 125px
+            width: 140px!important
+            height: 140px
             padding: 9px
-          &:hover, &.swiper-slide-thumb-active
+            border-radius: 28px
+
+          &:hover, .swiper-slide-thumb-active &
             .thumb-inn
               .bg
                 background: #FF8720
-          &.swiper-slide-thumb-active:after
-            content: ""
-            width: 27px
-            height: 15px
-            position: absolute
-            background: no-repeat center / contain url('../images/dest/arr3.svg')
-            left: 50%
-            bottom: -70px
-            transform: translateX(-50%)
-            +media-breakpoint-down(md)
-              bottom: -52px
+
           .thumb-inn
             position: relative
             border-radius: 32px
             height: 100%
             width: 100%
             overflow: visible
+
             .bg
               position: absolute
               width: 100%
@@ -917,6 +927,8 @@ section
               background: #FFC38F
               transition: 0.7s ease-out
               box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12)
+              +media-breakpoint-down(md)
+                border-radius: 25px
             img
               z-index: 2
               position: absolute
@@ -1156,9 +1168,10 @@ section
           height: auto
           +media-breakpoint-down(md)
             //height: 100%
+            width: 70%
         .step
           +media-breakpoint-down(md)
-            width: 70%!important
+
 
           .step-inn
             background: #FFFFFF
@@ -1174,6 +1187,7 @@ section
               min-height: 100%
               display: flex
               flex-direction: column
+
               flex-wrap: wrap
               box-sizing: border-box
               padding: 12px 18px 51px

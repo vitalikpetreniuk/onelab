@@ -139,8 +139,8 @@ header.header
       +media-breakpoint-down(lg)
         margin-right: 30px
       +media-breakpoint-down(md)
-        width: 45px
-        height: 45px
+        width: 68px
+        height: 34px
       +media-breakpoint-down(sm)
 
         object-fit: contain
@@ -648,6 +648,9 @@ section
       z-index: 1
       border-radius: 42px
       background: no-repeat center / cover url('../images/dest/bg13.svg')
+      &.no-arr
+        &:after
+          display: none
       +media-breakpoint-down(md)
         background: no-repeat center / cover url('../images/dest/bg14.svg')
       body.provider &
@@ -861,13 +864,41 @@ section
         top: 310px
         height: 1100px
       +media-breakpoint-down(sm)
-        top: 313px
+        top: 331px
         height: 1140px
+    .swiper-button-next
+      right: 70px
+      @media (max-width: 1800px)
+        right: 10px
+    .swiper-button-prev
+      left: 70px
+      @media (max-width: 1800px)
+        left: 10px
+    .swiper-button-next, .swiper-button-prev
+      border-radius: 50%
+      color: #2B1FC7
+      font-size: 20px
+      background: #FFFFFF
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12)
+      width: 42px
+      top: 403px
+      height: 44px
+      @media (max-width: 1280px)
+        display: none
+      &:after
+        font-size: 20px
+        font-weight: 600
+      +media-breakpoint-down(lg)
+        top: 337px
+      +media-breakpoint-down(md)
+        display: none
     .mySwiper2
       margin-top: 42px
       +media-breakpoint-down(md)
         margin-top: 0
+
       .mySwiper
+
         .swiper-wrapper
           justify-content: space-between
           padding: 50px 0 70px
@@ -876,6 +907,7 @@ section
             padding: 37px 0 66px
         .swiper-slide
           width: 140px
+
         .swiper-slide-thumb-active .swiper-inn .thumb-inn:after
           content: ""
           width: 27px
@@ -892,6 +924,7 @@ section
             .bg
               background: #FF8720!important
         .swiper-inn
+          margin: auto
           border-radius: 40px
           //flex-shrink: 100 !important
           width: 176px!important
@@ -901,6 +934,7 @@ section
           cursor: pointer
           box-sizing: border-box
           +media-breakpoint-down(md)
+            margin: unset
             width: 140px!important
             height: 140px
             padding: 9px
@@ -1015,7 +1049,7 @@ section
           justify-content: center
           align-items: center
           margin-bottom: 34px
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12)
+          border: 2px solid #f1f1f1
           &.bg
             background: #fbf5f0
           +media-breakpoint-down(lg)
@@ -1155,10 +1189,24 @@ section
       body.patient &
         padding: 0 0 150px
     .common-title
-      max-width: 33%
+      max-width: 40%
       +media-breakpoint-down(lg)
         max-width: 100%
     .steps-wrap
+      & >
+        .img-step
+          .step
+            .step-inn
+              padding: 0
+              overflow: hidden
+              .group.group
+                border-bottom: unset
+                img
+                  height: 224px
+                  width: 100%
+                  object-fit: cover
+              p
+                padding: 0 30px 30px
       .swiper-wrapper
         width: auto!important
       p
@@ -2020,6 +2068,27 @@ section
   &.support
   &.docs
     padding-bottom: 110px
+    &.many
+      .row > div
+
+        &:nth-of-type(-n + 2)
+          margin-bottom: 71px
+          +media-breakpoint-down(lg)
+        .doc-inn
+          padding: 20px 30px
+          min-height: 255px
+          img
+            height: 313px
+            left: 40px
+            +media-breakpoint-down(lg)
+              left: -50px
+          p
+            font-weight: 300
+            a
+              color: #ffffff
+              text-decoration: underline
+              &:hover
+                text-decoration: unset
     .row > div:nth-of-type(2)
       .doc-inn
         img
@@ -2050,7 +2119,8 @@ section
       padding: 35px 30px 45px
       background: no-repeat left / cover url('../images/dest/bg7.svg')
       position: relative
-
+      body.business &
+        background: no-repeat left / cover url('../images/dest/bg16.svg')
       +media-breakpoint-down(lg)
         //margin-bottom: 30px
         height: 100%
@@ -2341,8 +2411,8 @@ footer.footer
           height: 60px
           object-fit: contain
           +media-breakpoint-down(md)
-            width: 45px
-            height: 45px
+            width: 92px
+            height: 44px
       & + p
         font-weight: 300
         font-size: 15px

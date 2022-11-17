@@ -164,6 +164,7 @@ header.header
         body.business &
           background-color: $business
     nav
+      position: relative
       ul
         list-style: none
         margin-bottom: 0
@@ -173,17 +174,24 @@ header.header
         font-weight: 500
         align-items: center
         & > li
-          position: relative
+          //position: relative
           &:nth-of-type(1)
             &.opened > a:before
               background-color: $patient
               border: 1px solid $patient
             .sub-menu
-              width: calc(100vw - 272px - 110px)
+              border: 1px solid $patient
+              //border-radius: 16px
               .left-block
-                background-color: $patient
-                .btn:hover
-                  color: $patient!important
+                //background-color: $patient
+                .close
+                  background: no-repeat center / 100% 100% url("../images/dest/close2b.svg")
+                .btn
+                  border: 1px solid $patient
+                  color: $patient
+                  &:hover
+                    color: #FFFFFF!important
+                    background-color: $patient
               +media-breakpoint-down(lg)
                 width: calc(100vw - 207px - 20px)
           &:nth-of-type(2)
@@ -191,25 +199,43 @@ header.header
               background-color: $provider
               border: 1px solid $provider
             .sub-menu
-              width: calc(100vw - 460px - 110px)
+              border: 1px solid $provider
+              border-radius: 16px
               .left-block
-                background-color: $provider
-                .btn:hover
-                  color: $provider!important
+                //background-color: $provider
+                .close
+                  background: no-repeat center / 100% 100% url("../images/dest/close2d.svg")
+                .btn
+                  border: 1px solid $provider
+                  color: $provider
+                  &:hover
+                    color: #FFFFFF!important
+                    background-color: $provider
               +media-breakpoint-down(lg)
                 width: calc(100vw - 349px - 20px)
+              +media-breakpoint-down(md)
+                border-radius: 8px
           &:nth-of-type(3)
             &.opened > a:before
               background-color: $business
               border: 1px solid $business
             .sub-menu
-              width: calc(100vw - 657px - 110px)
+              border: 1px solid $business
+              border-radius: 16px
               .left-block
-                background-color: $business
-                .btn:hover
-                  color: $business!important
+                //background-color: $business
+                .close
+                  background: no-repeat center / 100% 100% url("../images/dest/close2o.svg")
+                .btn
+                  border: 1px solid $business
+                  color: $business
+                  &:hover
+                    color: #FFFFFF!important
+                    background-color: $business
               +media-breakpoint-down(lg)
                 width: calc(100vw - 500px - 20px)
+              +media-breakpoint-down(md)
+                border-radius: 8px 0 8px 8px
           +media-breakpoint-down(md)
             position: unset
           &.opened
@@ -243,14 +269,15 @@ header.header
             .sub-menu
               display: flex
               z-index: 5
+              left: 0
               +media-breakpoint-down(md)
                 display: block
                 left: unset
-                right: 20px
-                top: 140px
+                right: 0px
+                top: 70px
                 width: 275px!important
               +media-breakpoint-down(sm)
-                top: 110px
+                top: 50px
           &:not(:last-of-type)
             margin-right: 70px
             +media-breakpoint-down(lg)
@@ -321,11 +348,12 @@ header.header
           background-color: white
           width: calc(100vw - 450px)
           top: 86px
-          border-radius: 16px
+          border-radius: 0 16px 16px 16px
           //box-shadow: 0px 0px 20px 3px rgba(103, 103, 103, 0.1)
           +media-breakpoint-down(md)
             border-radius: 8px
             width: 252px
+            top: 50px
             .btn
               width: 100%
               margin-bottom: 12px
